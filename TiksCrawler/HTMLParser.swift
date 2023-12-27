@@ -35,7 +35,12 @@ final class HTMLParser {
             let jsonString = try? body.getElementById("__UNIVERSAL_DATA_FOR_REHYDRATION__")?.html()
             guard let jsonData = jsonString?.data(using: .utf8)! else { return }
             let json = try? JSON(data: jsonData)
-            if let link = json?["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]["video"]["playAddr"].string {
+            let video = json?["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]["video"]
+            if let linkReview = video?["downloadAddr"].string {
+                print("--------- Link review:")
+                print(linkReview)
+            }
+            if let link = video?["playAddr"].string {
                 print("--------- Link download:")
                 print(link)
             }
@@ -47,7 +52,7 @@ final class HTMLParser {
     func getCookie(_ url: URL) {
         // Check if the response has cookies
         if let cookies = HTTPCookieStorage.shared.cookies(for: url) {
-            print("--------- Link download:")
+            print("--------- Cookie:")
             var cookieText = ""
             for cookie in cookies {
                 cookieText += "\(cookie.name)=\(cookie.value);"
