@@ -35,7 +35,8 @@ final class HTMLParser {
             let jsonString = try? body.getElementById("__UNIVERSAL_DATA_FOR_REHYDRATION__")?.html()
             guard let jsonData = jsonString?.data(using: .utf8)! else { return }
             let json = try? JSON(data: jsonData)
-            let video = json?["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]["video"]
+            let itemStruct = json?["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]
+            let video = itemStruct?["video"]
             if let linkReview = video?["downloadAddr"].string {
                 print("--------- Link review:")
                 print(linkReview)
@@ -43,6 +44,11 @@ final class HTMLParser {
             if let link = video?["playAddr"].string {
                 print("--------- Link download:")
                 print(link)
+            }
+            let stats = itemStruct?["stats"]
+            if let playCount = stats?["playCount"].number {
+                print("--------- Play Count:")
+                print(playCount)
             }
         } catch {
             print("Error get info video tiktok: " + String(describing: error))
