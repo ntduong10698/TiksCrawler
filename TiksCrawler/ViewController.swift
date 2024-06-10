@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.googleImages.search(query: "a", start: 10)
+        self.googleImages.search(query: "naruto art", start: 20)
     }
 }
 

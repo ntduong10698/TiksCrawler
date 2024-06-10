@@ -61,7 +61,7 @@ final class GoogleImages {
                         if (content.contains("data:image")) {
                             let contentImage = content.split(separator: "'")[1].replacingOccurrences(of: "\\x3d", with: "");
                             if (contentImage.starts(with: "data:image") && contentImage.count > 1500) {
-                                print("'\(contentImage)'") //result data: base64 images search
+                                print(contentImage) //result data: base64 images search
                                 print("---------------")
                             }
                         }
