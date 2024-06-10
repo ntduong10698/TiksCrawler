@@ -10,12 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     private let parser = HTMLParser()
+    private let googleImages = GoogleImages()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let link = "https://www.tiktok.com/@the_coaster_scoop/video/7290942038466465067?is_from_webapp=1&sender_device=pc"
-        self.parser.getInfo(link: link)
+        self.googleImages.search(query: "a", start: 10)
     }
 }
 

@@ -16,6 +16,7 @@
 		C802C2672B33508E004373AD /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = C802C2662B33508E004373AD /* SwiftSoup */; };
 		C802C2692B3350A1004373AD /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C802C2682B3350A1004373AD /* HTMLParser.swift */; };
 		C802C26C2B335D1F004373AD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C802C26B2B335D1F004373AD /* SwiftyJSON */; };
+		C8AA69A02C1431460093B87A /* GoogleImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA699F2C1431460093B87A /* GoogleImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C802C25D2B33506D004373AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C802C25F2B33506D004373AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C802C2682B3350A1004373AD /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		C8AA699F2C1431460093B87A /* GoogleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				C802C25C2B33506D004373AD /* LaunchScreen.storyboard */,
 				C802C25F2B33506D004373AD /* Info.plist */,
 				C802C2682B3350A1004373AD /* HTMLParser.swift */,
+				C8AA699F2C1431460093B87A /* GoogleImages.swift */,
 			);
 			path = TiksCrawler;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				C802C2562B33506B004373AD /* ViewController.swift in Sources */,
 				C802C2692B3350A1004373AD /* HTMLParser.swift in Sources */,
+				C8AA69A02C1431460093B87A /* GoogleImages.swift in Sources */,
 				C802C2522B33506B004373AD /* AppDelegate.swift in Sources */,
 				C802C2542B33506B004373AD /* SceneDelegate.swift in Sources */,
 			);
@@ -308,6 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6F3SDXLVF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TiksCrawler/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -335,6 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6F3SDXLVF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TiksCrawler/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
