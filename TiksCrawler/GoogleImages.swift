@@ -9,6 +9,7 @@ import Foundation
 import SwiftSoup
 import SwiftyJSON
 import UIKit
+import SwiftyJSON
 
 final class GoogleImages {
 
@@ -58,13 +59,22 @@ final class GoogleImages {
                 let scripts = try document.getElementsByTag("script")
                 for script in scripts {
                     if let content = try? script.html() {
-                        if (content.contains("data:image")) {
-                            let contentImage = content.split(separator: "'")[1].replacingOccurrences(of: "\\x3d", with: "");
-                            if (contentImage.starts(with: "data:image") && contentImage.count > 1500) {
-                                print(contentImage) //result data: base64 images search
-                                print("---------------")
+                        //start code change hd
+                        if (content.contains("google.jl")) {
+                            let functions = content.split(separator: "(function(){")
+                            for function in functions {
+                                if (function.contains("var m")
+                                    && (function.contains(".webp")
+                                        || function.contains(".jpg")
+                                        || function.contains(".jpeg")
+                                        || function.contains(".png")
+                                        || function.contains(".gif"))) {
+                                    let jsonString = function.split(separator: "var m=")[0].split(separator: "};")[0] + "}";
+                                    self.getImagesFromJson(jsonString: String(jsonString))
+                                }
                             }
                         }
+                        //end code change hd
                     }
                 }
             } catch {
@@ -74,6 +84,27 @@ final class GoogleImages {
 
         task.resume()
     }
+    
+    func getImagesFromJson(jsonString: String) {
+        let jsonData = jsonString.data(using: .utf8)!
+        guard let json = try? JSON(data: jsonData) else {
+            return;
+        }
+        for (_, subJson): (String, JSON) in json {
+            if (subJson.arrayValue.count > 2) {
+                let subJson1 = subJson.arrayValue[1]
+                if (subJson1.arrayValue.count > 4) {
+                    let subJson2 = subJson1.arrayValue[3]
+                    if (subJson2.arrayValue.count > 1) {
+                        let link = subJson2.arrayValue[0].string ?? "";
+                        // link crawler hd - check thêm định dạng đuôi ảnh thì view còn lại loại
+                        print(link)
+                    }
+                }
+            }
+            print("-----------------")
+        }
+    }
 
     //function convert base64 to images
     func imageFromBase64(base64String: String) -> UIImage? {
@@ -82,5 +113,6 @@ final class GoogleImages {
         }
         return nil
     }
+
 }
 
