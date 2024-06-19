@@ -95,10 +95,14 @@ final class GoogleImages {
                 let subJson1 = subJson.arrayValue[1]
                 if (subJson1.arrayValue.count > 4) {
                     let subJson2 = subJson1.arrayValue[3]
-                    if (subJson2.arrayValue.count > 1) {
+                    if (subJson2.arrayValue.count > 2) {
                         let link = subJson2.arrayValue[0].string ?? "";
                         // link crawler hd - check thêm định dạng đuôi ảnh thì view còn lại loại
-                        print(link)
+                        let width = subJson2.arrayValue[1].int ?? 0;
+                        let height = subJson2.arrayValue[2].int ?? 0;
+                        print("link: \(link)")
+                        print("width: \(width)")
+                        print("height: \(height)")
                     }
                 }
             }
